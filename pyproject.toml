@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "python-template"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8.0,<3.9"
+numpy = "^1.22.2"
+replit = "^3.2.4"
+"Dick.py" = "^1.6.7"
+requests = "^2.27.1"
+twilio = "^7.9.0"
+wsaccel = "^0.6.3"
+configparser = "^5.2.0"
+amino = "^13.0.1"
+names = "^0.3.0"
+PySocks = "^1.7.1"
+Flask = "^2.1.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
