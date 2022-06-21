@@ -14,7 +14,7 @@ def restart():
     import sys
     os.execl(sys.executable, sys.executable, *sys.argv)
 
-bots()
+ss=bots()
 
 def dev():
     hw=(names.get_full_name()+str(random.randint(0,10000000))+platform.version()+platform.machine()+names.get_first_name()+socket.gethostbyname(socket.gethostname())+':'.join(re.findall('..', '%012x' % uuid.getnode()))+platform.processor())
@@ -92,7 +92,7 @@ def livee(comId,chatId,remove):
     line = f.readlines()
     for l in line:
       lines.append(l.strip())
-  for sid in lines:
+  for sid in ss:
     if sid !=remove:
       try: vc_bot(sid,comId,chatId)
       except: pass
@@ -101,7 +101,7 @@ def end_bot(comId,chatId):
   lines = []
   with open('vc.txt') as f:
     line = f.readlines()
-    for l in line:
+    for l in ss:
       lines.append(l.strip())
   for sid in lines:
     vc_bot(sid,comId,chatId)    
@@ -117,7 +117,7 @@ with open('vc.txt') as h:
 #com=["195570892"]
 
 
-for sid in ll:
+for sid in ss:
   for _ in range(1):
     keys="267836037"
     chat="4cd6dbad-31bd-4c95-a745-9ba92daa3f4a"
