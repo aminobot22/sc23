@@ -11,17 +11,18 @@ def clear(vc):
 
 def bots():
     dic=[]
+    ff=[]
     emailfile=path.join(THIS_FOLDER,"vc.json")
-    vc="vc.txt"
-    clear(vc)
+    #vc="vc.txt"
+    #clear(vc)
     with open(emailfile) as f:
       dic = json.load(f)
     print(f"{len(dic)} accounts loaded")
     for amp in dic:
         ss=threadit(amp)
-        with open("vc.txt","a") as d:
-          d.write(f"{ss}\n")
+        ff.append(ss)
         print("saved")
+    return ff
 
 def real():
     dick=[]
