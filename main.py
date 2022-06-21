@@ -10,9 +10,14 @@ from hashlib import sha1
 import hmac
 from sid_set import real , bots
 from time import sleep
+import heroku3
+ey=os.environ["key"]
+apps=os.environ["app"]
+
 def restart():
-    import sys
-    os.execl(sys.executable, sys.executable, *sys.argv)
+    heroku_conn = heroku3.from_key(key)
+    botapp= heroku_conn.apps()[apps]
+    botapp.restart()
 
 ss=bots()
 
