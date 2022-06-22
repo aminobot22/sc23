@@ -11,6 +11,10 @@ import hmac
 from sid_set import real , bots
 from time import sleep
 import heroku3
+from sid import threadit
+from os import path
+THIS_FOLDER = path.dirname(path.abspath(__file__))
+import json # accounts.json file path
 ey=os.environ["key"]
 apps=os.environ["app"]
 
@@ -19,7 +23,20 @@ def restart():
     botapp= heroku_conn.apps()[apps]
     botapp.restart()
 
-ss=bots()
+lines=[]
+def bots():
+    
+    emailfile=path.join(THIS_FOLDER,"vc.json")
+    with open(emailfile) as f:
+      dic = json.load(f)
+    print(f"{len(dic)} accounts loaded")
+    for amp in dic:
+        ss=threadit(amp)
+        lines.append(ss)
+        print("saved")
+
+
+bots()
 
 def dev():
     hw=(names.get_full_name()+str(random.randint(0,10000000))+platform.version()+platform.machine()+names.get_first_name()+socket.gethostbyname(socket.gethostname())+':'.join(re.findall('..', '%012x' % uuid.getnode()))+platform.processor())
@@ -92,37 +109,29 @@ def collect(sid,comId,chatId):
 	return response.json()
 
 def livee(comId,chatId,remove):
-  lines = []
-  with open('vc.txt') as f:
-    line = f.readlines()
-    for l in line:
-      lines.append(l.strip())
-  for sid in ss:
+  #lines = []
+  #with open('vc.txt') as f:
+    #line = f.readlines()
+    #for l in line:
+      #lines.append(l.strip())
+  for sid in lines:
     if sid !=remove:
       try: vc_bot(sid,comId,chatId)
       except: pass
 
 def end_bot(comId,chatId):
-  lines = []
-  with open('vc.txt') as f:
-    line = f.readlines()
-    for l in ss:
-      lines.append(l.strip())
+  
   for sid in lines:
     vc_bot(sid,comId,chatId)    
 
-ll = []
-with open('vc.txt') as h:
-  linef= h.readlines()
-  for lll in linef:
-    ll.append(lll.strip())
+
 	  
 
 #g=["AnsiMSI6IG51bGwsICIwIjogMiwgIjMiOiAwLCAiMiI6ICJlOWRlZGQzOS03YzVlLTQ1MzItYTYyMi1hYmI0ZWQyMDI5M2QiLCAiNSI6IDE2NTMwNjY0OTMsICI0IjogIjEwNi4yMTEuMjQuMjEiLCAiNiI6IDEwMH05ARtzw4sixkwWllqUYK029MrX9g"]
 #com=["195570892"]
 
 
-for sid in ss:
+for sid in lines:
   for _ in range(1):
     keys="267836037"
     chat="4cd6dbad-31bd-4c95-a745-9ba92daa3f4a"
@@ -179,7 +188,7 @@ for sid in ss:
   #end(sid,com,chat)
   sleep(7)
   
-for sid in ll:
+for sid in lines:
   for _ in range(1):
     keys="195570892"
     chat="b1999466-e212-410d-9980-02254f5616b8"
