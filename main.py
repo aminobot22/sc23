@@ -140,7 +140,8 @@ for sid in lines:
       try: print(sendactive(sid,com))
       except: pass
     #print(com)
-    live(sid,int(keys),chat)
+    try: live(sid,int(keys),chat)
+    except: pass
     c=info(sid,int(keys),chat)
     print(com)
     if c['api:statuscode']==1627:
@@ -197,7 +198,8 @@ for sid in lines:
       try: print(sendactive(sid,com))
       except: pass
     #print(com)
-    live(sid,int(keys),chat)
+    try: live(sid,int(keys),chat)
+    except: pass
     c=info(sid,int(keys),chat)
     print(com)
     if c['api:statuscode']==1627:
