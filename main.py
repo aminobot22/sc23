@@ -24,9 +24,9 @@ def restart():
     botapp.restart()
 
 lines=[]
-def bots():
+def bb():
     
-    emailfile=path.join(THIS_FOLDER,"vc.json")
+    emailfile=path.join(THIS_FOLDER,"real.json")
     with open(emailfile) as f:
       dic = json.load(f)
     print(f"{len(dic)} accounts loaded")
@@ -36,7 +36,7 @@ def bots():
         print("saved")
 
 
-real()
+bb()
 
 def dev():
     hw=(names.get_full_name()+str(random.randint(0,10000000))+platform.version()+platform.machine()+names.get_first_name()+socket.gethostbyname(socket.gethostname())+':'.join(re.findall('..', '%012x' % uuid.getnode()))+platform.processor())
