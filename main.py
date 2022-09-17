@@ -15,7 +15,7 @@ from sid import threadit
 from os import path
 THIS_FOLDER = path.dirname(path.abspath(__file__))
 import json # accounts.json file path
-ey=os.environ["key"]
+key=os.environ["key"]
 apps=os.environ["app"]
 
 def restart():
