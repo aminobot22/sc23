@@ -131,68 +131,11 @@ def end_bot(comId,chatId):
 #com=["195570892"]
 
 
-for sid in lines:
-  for _ in range(1):
-    keys="267836037"
-    chat="4cd6dbad-31bd-4c95-a745-9ba92daa3f4a"
-    com=str(keys)
-    for _ in range(2):
-      try: print(sendactive(sid,com))
-      except: pass
-    #print(com)
-    try: live(sid,int(keys),chat)
-    except: pass
-    c=info(sid,int(keys),chat)
-    print(com)
-    if c['api:statuscode']==1627:
-      #del db[com]
-      print(c['api:message'])
-    if c['api:statuscode']==0:
-      try:
-        live(sid,int(keys),chat)
-        
-        try: threading.Thread(target=livee,args=[com,chat,sid]).start()
-        except: pass
-        duplicates=[]
-        while True:
-          
-          live(sid,int(keys),chat)
-          p=info(sid,int(keys),chat)
-          try:
-            repp=p["availableReputation"]
-            print(repp)
-            duplicates.append(int(repp))
-            if p["availableReputation"]>=10:
-              
-              collect(sid,com,chat)
-              duplicates.clear()
-              #db[sid]=reps+50
-              #print(p["reputation"])
-              #print(reps)
-            x=duplicates.count(repp)
-            if x >=6:
-              collect(sid,com,chat)
-              duplicates.clear()
-          except:
-            pass
-          
-          if p['api:statuscode']==1627:
-            print(p['api:message'])
-            
-            #del db[str(keys)]
-            print("deleted")
-            break
-      except:
-        pass
-  try: end(sid,com,chat)
-  except: pass
-  #end(sid,com,chat)
-  sleep(7)
   
 for sid in lines:
   for _ in range(1):
     keys="195570892"
-    chat="b1999466-e212-410d-9980-02254f5616b8"
+    chat="8a8fa84b-1efc-4d75-bc30-8f31738f9fc5"
     com=str(keys)
     for _ in range(2):
       try: print(sendactive(sid,com))
@@ -220,7 +163,7 @@ for sid in lines:
             repp=p["availableReputation"]
             print(repp)
             duplicates.append(int(repp))
-            if p["availableReputation"]>=10:
+            if p["availableReputation"]>=50:
               
               collect(sid,com,chat)
               duplicates.clear()
