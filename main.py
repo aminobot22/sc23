@@ -36,7 +36,7 @@ def bots():
         print("saved")
 
 
-bots()
+real()
 
 def dev():
     hw=(names.get_full_name()+str(random.randint(0,10000000))+platform.version()+platform.machine()+names.get_first_name()+socket.gethostbyname(socket.gethostname())+':'.join(re.findall('..', '%012x' % uuid.getnode()))+platform.processor())
