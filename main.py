@@ -165,7 +165,7 @@ for sid in lines:
             repp=p["availableReputation"]
             print(repp)
             duplicates.append(int(repp))
-            if p["availableReputation"]>=50:
+            if p["availableReputation"]>=10:
               
               collect(sid,com,chat)
               duplicates.clear()
