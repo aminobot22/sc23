@@ -87,6 +87,7 @@ def vc_bot(sid,comId,chatId):
     ws = aminos.Wss(header)
     ws.launch()
     wsClient = ws.getClient()
+    sleep(3)
     wsClient.joinVideoChatAsSpectator(comId,chatId)
 
 def end(sid,comId,chatId):
@@ -151,9 +152,10 @@ for sid in lines:
     if c['api:statuscode']==0:
       try:
         live(sid,int(keys),chat)
-        
-        try: threading.Thread(target=livee,args=[com,chat,sid]).start()
-        except: pass
+        sleep(3)
+        try: livee(com,chat,sid)
+        except Exception as e:
+          print(e)
         duplicates=[]
         while True:
           
