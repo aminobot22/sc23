@@ -57,7 +57,7 @@ def SID(email: str, password: str):
    'http': 'socks5://dic:dick.py@3.39.171.7:52399',
    'https':'socks5://dic:dick.py@3.39.171.7:52399'}
 
-        response = requests.post(f"https://service.narvii.com/api/v1/g/s/auth/login", headers=headers, data=data,proxies=proxies)
+        response = requests.post(f"https://service.narvii.com/api/v1/g/s/auth/login", headers=headers, data=data)
         
         if response.json()["api:message"]=="OK":
             sid=response.json()["sid"]
