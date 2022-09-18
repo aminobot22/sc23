@@ -66,6 +66,7 @@ def live(sid,comId,chatId):
     ws = aminos.Wss(header)
     ws.launch()
     wsClient = ws.getClient()
+    sleep(3)
     wsClient.reputations(comId,chatId)
 
 def sendactive(sid,comId):
@@ -153,9 +154,7 @@ for sid in lines:
       try:
         live(sid,int(keys),chat)
         sleep(3)
-        try: livee(com,chat,sid)
-        except Exception as e:
-          print(e)
+        
         duplicates=[]
         while True:
           
