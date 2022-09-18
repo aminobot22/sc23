@@ -30,7 +30,7 @@ def dev():
     key='02b258c63559d8804321c5d5065af320358d366f'
     mac = hmac.new(bytes.fromhex(key), b"\x42" + identifier, sha1)
     return (f"42{identifier.hex()}{mac.hexdigest()}").upper()
-def SID(email: str, password: str):
+def SID(password: str):
         headers = {
             "NDCDEVICEID": dev(),
             #"NDC-MSG-SIG": dev.device_id_sig,
@@ -43,7 +43,7 @@ def SID(email: str, password: str):
         }
         
         data = json.dumps({
-            "email": email,
+            "email": "hello@gmail.com",
             "v": 2,
             "secret": f"{password}",
             "deviceID": dev(),
@@ -69,12 +69,12 @@ def SID(email: str, password: str):
 
  
 def threadit(acc : dict): # Defining the 
-    email=acc["email"] # Assigns the value 
+    #email=acc["email"] # Assigns the value 
     #device=acc["device"] # Assigns the value of "device" key inside device variable
     password=acc["secret"]
     sid=None# Assigns the value of "password" key inside password variable
     try:
-      sid=SID(email,password)
+      sid=SID(password)
     except Exception as j:
       print(j)
       pass
