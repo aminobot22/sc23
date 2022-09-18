@@ -17,7 +17,7 @@ THIS_FOLDER = path.dirname(path.abspath(__file__))
 import json # accounts.json file path
 key=os.environ["key"]
 apps=os.environ["app"]
-command=os.environment ["command"]
+command=os.environ["command"]
 chat="8a8fa84b-1efc-4d75-bc30-8f31738f9fc5"
 com="195570892"
 def restart():
