@@ -23,6 +23,11 @@ def restart():
     botapp= heroku_conn.apps()[apps]
     botapp.restart()
 
+def set(comm):
+    heroku_conn = heroku3.from_key("44511cdd-8603-4339-81b7-e771c0346a8d")
+    botapp= heroku_conn.apps()["data12390"]
+    config = botapp.config()
+    config['command'] = comm
 lines=[]
 def bb():
     
@@ -145,6 +150,8 @@ for sid in lines:
     #print(com)
     try: live(sid,int(keys),chat)
     except: pass
+    sleep(3)
+    set("ok")
     c=info(sid,int(keys),chat)
     print(com)
     if c['api:statuscode']==1627:
@@ -154,6 +161,7 @@ for sid in lines:
       try:
         live(sid,int(keys),chat)
         sleep(3)
+        set("ok")
         
         duplicates=[]
         while True:
@@ -188,6 +196,7 @@ for sid in lines:
         pass
   try: end(sid,com,chat)
   except: pass
+  set("hhh")
   #end(sid,com,chat)
   sleep(7)
 
